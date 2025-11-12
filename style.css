@@ -1,0 +1,1912 @@
+/* ANTI-FLASH: Apply light mode immediately if class exists */
+html.light-mode-loading,
+html.light-mode-loading body{
+    background-color: #eaedf1 !important;
+}
+html.light-mode-loading,
+html.light-mode-loading .header-section{
+    background-color: #eaedf1 !important;
+}
+
+
+/* Rest of your CSS below... */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+DARK MODE COLORS (DEFAULT)
+   ======================================== */
+body{
+    background-color: rgb(15, 23, 42);
+    font-family: 'Geist', sans-serif;
+    padding: 0.1px;
+    transition: background-color 0.3s ease; /* Smooth transition between modes */
+}
+
+/* ========================================
+LIGHT MODE COLORS
+ADJUST THESE VARIABLES TO YOUR PREFERENCE
+   ======================================== */
+body.light-mode {
+    /* Main Colors */
+    --light-body-bg: #eaedf1;                    /* Body background color */
+    --light-text-primary: #2d3748;               /* Main text color */
+    --light-text-secondary: #4a5568;             /* Secondary text color */
+    
+    /* Header Colors */
+    --light-header-bg: #ffffff;                  /* Header background */
+    --light-header-border: rgba(226, 232, 240, 0.95); /* Header border */
+    --light-header-name: #1a202c;                /* Header name text */
+    --light-nav-links: #4a5568;                  /* Nav links color */
+    --light-nav-links-hover: rgb(5, 148, 161);   /* Nav links hover (keep cyan) */
+    
+    /* Card Backgrounds */
+    --light-card-bg: #fbf8f8;                    /* Main card background (About, Experience, Skills) */
+    --light-card-border: rgba(226, 232, 240, 0.95); /* Card borders */
+    
+    /* Button Colors */
+    --light-btn-2-3-bg: #fafbfc;                 /* View Experience & GitHub button background */
+    --light-btn-2-3-text: #1a202c;               /* View Experience & GitHub button text */
+    
+    /* Bottom Nav Colors */
+    --light-bottom-nav-bg-start: #fbf8f8; /* Bottom nav gradient start */
+    --light-bottom-nav-bg-mid: #fbf8f8;   /* Bottom nav gradient middle */
+    --light-bottom-nav-bg-end: #fbf8f8;   /* Bottom nav gradient end */
+    --light-bottom-nav-text: #4a5568;            /* Bottom nav text */
+    --light-bottom-nav-active-bg: rgba(226, 232, 240, 0.95); /* Bottom nav active background */
+    --light-bottom-nav-active-border: rgba(203, 213, 225, 0.95); /* Bottom nav active border */
+    
+    /* Skill Tags Colors - ADJUST EACH TAG TYPE INDIVIDUALLY */
+    /* Skill Tag 1 (HTML5, CSS3, JavaScript, etc.) */
+    --light-skill-tag-bg: rgba(160, 217, 239, 0.274);           /* Background color */
+    --light-skill-tag-text: rgba(5, 101, 120, 0.941);           /* Text color */
+    
+    /* Skill Tag 2 (PHP, Python, MySQL, etc.) */
+    --light-skill-tag2-bg: rgba(91, 208, 254, 0.274);   /* Background color */
+    --light-skill-tag2-text: rgba(20, 60, 90, 0.941);     /* Text color */
+    
+    /* Skill Tag 3 (Database Management) */
+    --light-skill-tag3-bg: rgba(101, 255, 163, 0.274);  /* Background color */
+    --light-skill-tag3-text: rgba(10, 80, 30, 0.941);     /* Text color */
+    
+    /* Skill Tag 4 (PowerPoint, Word) */
+    --light-skill-tag4-bg: rgba(190, 145, 250, 0.274);  /* Background color */
+    --light-skill-tag4-text: rgba(60, 10, 100, 0.941);    /* Text color */
+    
+    /* Skill Tag 5 (Git, GitHub, Tools) */
+    --light-skill-tag5-bg: rgba(255, 183, 101, 0.274);  /* Background color */
+    --light-skill-tag5-text: rgba(100, 50, 10, 0.941);    /* Text color */
+    
+    /* Info Cards in Get in Touch Section - LIGHTER VERSIONS WITH LOW OPACITY */
+    --light-info-card-bg: rgba(200, 220, 235, 0.3);     /* Email card background */
+    --light-info-card2-bg: rgba(200, 235, 215, 0.3);    /* Phone card background */
+    --light-info-card3-bg: rgba(200, 225, 240, 0.3);    /* Facebook card background */
+    --light-info-card4-bg: rgba(220, 200, 235, 0.3);    /* Location card background */
+    
+    /* Footer Colors */
+    --light-footer-bg: rgba(9, 15, 30, 0.95);       /* Footer background */
+    --light-footer-border: rgba(202, 207, 214, 0.95);   /* Footer border */
+    --light-footer-text: #6d7583;                       /* Footer text */
+    
+    /* Apply light mode colors */
+    background-color: var(--light-body-bg);
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+.header-name h2{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 100px;
+    transition: color 0.3s ease;
+}
+
+/* Light mode header name */
+body.light-mode .header-name h2 {
+    color: var(--light-header-name);
+}
+
+.header-section {
+    background: rgba(19, 30, 55, 0.95);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid rgba(45, 52, 68, 0.95);
+    transition: background 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* Light mode header */
+body.light-mode .header-section {
+    background: var(--light-header-bg);
+    border-bottom: 1px solid var(--light-header-border);
+}
+
+.nav-wrapper {
+    margin-left: 520px;
+}
+
+.nav-wrapper .nav-links a,
+.nav-buttons button a,
+.btn-1 a,
+.btn-2 a,
+.btn-3 a {
+    all: unset;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    font-size: 14px;
+    color: rgb(181, 177, 177);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+/* Light mode nav links */
+body.light-mode .nav-links {
+    color: var(--light-nav-links);
+}
+
+.nav-links li:hover {
+    color: rgb(5, 148, 161);
+    transition: ease 0.3s;
+}
+
+body.light-mode .nav-links li:hover {
+    color: var(--light-nav-links-hover);
+}
+
+.nav-links li.active{
+    color: rgb(5, 148, 161);
+}
+
+body.light-mode .nav-links li.active {
+    color: var(--light-nav-links-hover);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.nav-buttons button {
+    height: 37px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   DARK MODE TOGGLE BUTTON
+   ======================================== */
+.dark-mode-toggle-wrapper{
+    margin-right: 120px;
+    display: flex;
+}
+
+.dark-mode-toggle-wrapper .dark-mode-toggle{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle-wrapper .dark-mode-toggle:hover{
+    background-color: rgba(32, 41, 65, 0.95);
+    transition: ease 0.2s;
+}
+
+/* Light mode toggle button hover */
+body.light-mode .dark-mode-toggle-wrapper .dark-mode-toggle:hover {
+    background-color: rgba(226, 232, 240, 0.95);
+}
+
+/* SVG icon styling inside toggle button */
+.dark-mode-toggle svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+/* ========================================
+   PROFILE SECTION BUTTONS
+   ======================================== */
+.btn-1 {
+    background-color: rgb(5, 148, 161);
+    border: none;
+    color: rgb(15, 23, 42);
+    font-weight: 500;
+    font-family: 'Geist', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .btn-1{
+    color: #ffffff;
+}
+body.light-mode .btn-1 img {
+    filter: invert(1); /* Make icon dark/black */
+}
+
+.btn-1:hover {
+    background-color: rgb(25, 171, 184);
+    transition: 0.3s ease-in-out;
+}
+
+.btn-1 img {
+    height: 18px;
+    width: 18px;
+}
+
+/* Light mode - btn-1 stays the same (cyan background, white text) */
+
+.btn-2 {
+    background-color: rgba(19, 30, 55, 0.95);
+    border: 1px solid rgba(45, 52, 68, 0.95);
+    color: rgb(181, 177, 177);
+    font-weight: 500;
+    font-family: 'Geist', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-2:hover {
+    background-color: rgb(21, 30, 65);
+    transition: 0.3s ease-out;
+}
+
+.btn-2 img {
+    height: 18px;
+    width: 18px;
+    transition: filter 0.3s ease;
+}
+
+/* Light mode - btn-2 (View Experience) */
+body.light-mode .btn-2 {
+    background-color: var(--light-btn-2-3-bg);
+    border: 1px solid rgba(203, 208, 219, 0.95); /* Keep same border */
+    color: var(--light-btn-2-3-text);
+}
+
+body.light-mode .btn-2:hover {
+    background-color: rgba(226, 232, 240, 0.95);
+}
+
+body.light-mode .btn-2 img {
+    filter: invert(1); /* Make icon dark/black */
+}
+
+.btn-3 {
+    background-color: rgba(19, 30, 55, 0.95);
+    border: 1px solid rgba(45, 52, 68, 0.95);
+    color: rgb(181, 177, 177);
+    font-weight: 500;
+    font-family: 'Geist', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-3:hover {
+    background-color: rgb(21, 30, 65);
+    transition: 0.3s ease-out;
+}
+
+.btn-3 img {
+    height: 18px;
+    width: 18px;
+    transition: filter 0.3s ease;
+}
+
+/* Light mode - btn-3 (GitHub) */
+body.light-mode .btn-3 {
+    background-color: var(--light-btn-2-3-bg);
+    border: 1px solid rgba(203, 208, 219, 0.95); /* Keep same border */
+    color: var(--light-btn-2-3-text);
+}
+
+body.light-mode .btn-3:hover {
+    background-color: rgba(226, 232, 240, 0.95);
+}
+
+body.light-mode .btn-3 img {
+    filter: invert(1); /* Make icon dark/black */
+}
+
+/* ========================================
+   PROFILE SECTION
+   ======================================== */
+.about-me-section-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    gap: 20px;
+}
+.light-mode .profile{
+    box-shadow: 0 0 15px rgba(18, 24, 81, 0.3); /* x, y, blur, color */;
+}
+.profile{
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    
+}
+
+.about-me-text{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-me-text h1{
+    color: white;
+    font-size: 40px;
+    transition: color 0.3s ease;
+}
+
+/* Light mode profile section h1 */
+body.light-mode .about-me-text h1 {
+    color: var(--light-text-primary);
+}
+
+.about-me-text h2{
+    color: rgb(5, 148, 161);
+    line-height: 1.5;
+}
+
+/* Keep cyan color in light mode too */
+
+.self p{
+    color: rgb(181, 177, 177);
+    width: 500px;
+    text-align: center;
+    line-height: 1.7;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Light mode self description */
+body.light-mode .self p {
+    color: var(--light-text-secondary);
+}
+
+/* ========================================
+   BOTTOM NAVIGATION
+   ======================================== */
+.bottom-nav-section {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    background: linear-gradient(90deg, rgba(19,30,55,0.95) 20%, rgba(15, 23, 42,0.95) 60%, rgba(19,30,55,0.95) 100%);
+    height: 35px;
+    border-radius: 7px;
+    box-shadow: 0 4px 24px 0 rgba(10, 15, 30, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Light mode bottom nav */
+body.light-mode .bottom-nav {
+    background: linear-gradient(90deg, var(--light-bottom-nav-bg-start) 20%, var(--light-bottom-nav-bg-mid) 60%, var(--light-bottom-nav-bg-end) 100%);
+    box-shadow: 0 4px 24px 0 rgba(100, 116, 139, 0.15);
+}
+
+.bottom-nav button {
+    flex: 1;
+    padding-top: 7px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgb(181, 177, 177);
+    font-weight: 550;
+    font-family: 'Geist', sans-serif;
+}
+
+/* Light mode bottom nav buttons */
+body.light-mode .bottom-nav button {
+    color: var(--light-bottom-nav-text);
+}
+
+.bottom-nav button.active{
+    border: rgba(87, 88, 97) 1px solid;
+    background-color: rgba(28, 35, 64, 0.95);
+    height: 35px;
+    color: white;
+    transform: translateY(-1.8px);
+    font-weight: 550;
+}
+
+/* Light mode bottom nav button active */
+body.light-mode .bottom-nav button.active {
+    border: var(--light-bottom-nav-active-border) 1px solid;
+    background-color: var(--light-bottom-nav-active-bg);
+    color: var(--light-text-primary);
+}
+
+/* ========================================
+   ABOUT ME SECTION
+   ======================================== */
+.about-me{
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: rgba(19, 30, 55, 0.95);
+    width: 100%;
+    max-width: 1100px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode about me card */
+body.light-mode .about-me {
+    background-color: var(--light-card-bg);
+    border: 1px solid var(--light-card-border);
+}
+
+.about-wrapper{
+    border-bottom: 1px solid rgb(53, 57, 81);
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: border-bottom 0.3s ease;
+}
+
+/* Light mode about wrapper border */
+body.light-mode .about-wrapper {
+    border-bottom: 1px solid var(--light-card-border);
+}
+
+.wrapper{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.wrapper img{
+    height: 26px;
+    width: 26px;
+    /* DO NOT change icon colors in light mode */
+}
+
+.wrapper h2{
+    color: rgb(249, 245, 245);
+    transition: color 0.3s ease;
+}
+
+/* Light mode wrapper h2 */
+body.light-mode .wrapper h2 {
+    color: var(--light-text-primary);
+}
+
+.div-p-wrapper{
+    margin-top: 27px;
+    margin-left: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    line-height: 22px;
+    color: rgb(181, 177, 177);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Light mode div-p-wrapper */
+body.light-mode .div-p-wrapper {
+    color: var(--light-text-secondary);
+}
+
+.education-wrapper{
+    border-bottom: 1px solid rgb(53, 57, 81);
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: border-bottom 0.3s ease;
+}
+
+/* Light mode education wrapper border */
+body.light-mode .education-wrapper {
+    border-bottom: 1px solid var(--light-card-border);
+}
+
+.wrapper-2{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 5px;
+    flex-direction: row;
+    gap: 10px;
+    color: white;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+/* Light mode wrapper-2 */
+body.light-mode .wrapper-2 {
+    color: var(--light-text-primary);
+}
+
+.div-p-wrapper2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-top: 10px;
+    background-color: rgb(26, 38, 66);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgb(53, 57, 81);
+    transition: all 0.3s ease;
+}
+
+/* Light mode div-p-wrapper2 */
+body.light-mode .div-p-wrapper2 {
+    background-color: rgba(240, 242, 245, 0.95);
+    border: 1px solid var(--light-card-border);
+}
+
+.wrapper-2 img{
+    height: 20px;
+    width: 20px;
+    /* DO NOT change icon colors in light mode */
+}
+
+.div-p-wrapper2 p{
+    margin-left: 4px;
+    line-height: 26px;
+}
+
+.div-p-wrapper2 .p1{
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+/* Light mode p1 */
+body.light-mode .div-p-wrapper2 .p1 {
+    color: var(--light-text-primary);
+}
+
+.div-p-wrapper2 .p2{
+    color: rgb(207, 201, 201);
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+/* Light mode p2 */
+body.light-mode .div-p-wrapper2 .p2 {
+    color: var(--light-text-secondary);
+}
+
+.div-p-wrapper2 .p3{
+    font-size: 14px;
+    color: rgb(135, 132, 132);
+    transition: color 0.3s ease;
+}
+
+/* Light mode p3 */
+body.light-mode .div-p-wrapper2 .p3 {
+    color: var(--light-text-secondary);
+}
+
+.research-wrapper{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 20px;
+}
+
+.wrapper-3 img{
+    height: 18px;
+    width: 18px;
+    /* DO NOT change icon colors in light mode */
+}
+
+.wrapper-3{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 4px;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+/* Light mode wrapper-3 */
+body.light-mode .wrapper-3 {
+    color: var(--light-text-primary);
+}
+
+.div-p-wrapper3{
+    margin-top: 10px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: rgb(181, 177, 177);
+    background-color: rgb(22, 49, 55);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(53, 57, 81);
+    line-height: 24px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode div-p-wrapper3 */
+body.light-mode .div-p-wrapper3 {
+    color: var(--light-text-secondary);
+    background-color: rgba(240, 245, 247, 0.95);
+    border: 1px solid var(--light-card-border);
+}
+
+/* ========================================
+   EXPERIENCE SECTION
+   ======================================== */
+.experience-section{
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: rgba(19, 30, 55, 0.95);
+    width: 100%;
+    max-width: 1100px;
+    padding: 22px;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode experience section */
+body.light-mode .experience-section {
+    background-color: var(--light-card-bg);
+    border: 1px solid var(--light-card-border);
+}
+
+.work-exp-wrapper{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+/* Light mode work-exp-wrapper */
+body.light-mode .work-exp-wrapper {
+    color: var(--light-text-primary);
+}
+
+.work-exp-wrapper img{
+    height: 26px;
+    width: 26px;
+    /* DO NOT change icon colors in light mode */
+}
+
+.separate{
+    display: flex;
+    flex-direction: row;
+    gap: 679px;
+    align-items: center;
+}
+
+.separate2{
+    display: flex;
+    flex-direction: row;
+    gap: 715px;
+    align-items: center;
+}
+
+.separate3{
+    display: flex;
+    flex-direction: row;
+    gap: 780px;
+    align-items: center;
+}
+.light-mode .par0{
+    background-color: rgba(23, 130, 154, 0.231);
+    color: rgb(14, 139, 189);
+    font-weight: 500;
+}
+.par0{
+    background-color: rgba(5, 148, 161, 0.403);
+    border-radius: 12px;
+    font-size: 12px;
+    padding-left: 14px;
+    padding-bottom: 5px ;
+    height: 22px;
+    width: 100px;
+    color: rgb(160, 216, 239);
+    display: block;
+    /* DO NOT change in light mode - keep cyan theme */
+}
+
+.par1{
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+/* Light mode par1 */
+body.light-mode .par1 {
+    color: var(--light-text-primary);
+}
+
+.par2{
+    background-color: rgba(5, 148, 161, 0.403);
+    border-radius: 12px;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-bottom: 5px ;
+    height: 22px;
+    width: 98px;
+    color: rgb(160, 216, 239);
+    display: block;
+    /* DO NOT change in light mode - keep cyan theme */
+}
+.light-mode .par2{
+    background-color: rgba(23, 130, 154, 0.231);
+    color: rgb(14, 139, 189);
+    font-weight: 500;
+}
+
+.par3{
+    color: rgb(5, 148, 161);
+    line-height: 27px;
+    font-size: 17px;
+    font-weight: 500;
+    /* DO NOT change in light mode - keep cyan theme */
+}
+
+.freelance-2nd-text p{
+    color: rgb(201, 201, 201);
+    font-size: 500;
+    transition: color 0.3s ease;
+}
+
+/* Light mode freelance-2nd-text */
+body.light-mode .freelance-2nd-text p {
+    color: var(--light-text-secondary);
+}
+
+.Aspiring{
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #0594a1;
+    padding-left: 10px;
+    gap: 10px;
+    line-height: 23px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* DO NOT change border color in light mode */
+}
+
+.Freelance{
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid rgb(5, 148, 161);
+    padding-left: 10px;
+    gap: 10px;
+    line-height: 23px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* DO NOT change border color in light mode */
+}
+
+.commi{
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid rgb(5, 148, 161);
+    padding-left: 10px;
+    gap: 10px;
+    line-height: 23px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* DO NOT change border color in light mode */
+}
+
+/* ========================================
+   SKILLS SECTION
+   ======================================== */
+.skills-section {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1141px;
+    padding: 20px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.skill-card {
+    background-color: rgba(19, 30, 55, 0.95);
+    border-radius: 16px;
+    padding: 20px;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+/* Light mode skill card - CHANGE BACKGROUND */
+body.light-mode .skill-card {
+    background-color: var(--light-card-bg);
+    border: 1px solid var(--light-card-border);
+}
+
+.skill-card:nth-child(5) {
+    grid-column: 1 / -1;
+    height: 120px;
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.skill-header img {
+    width: 24px;
+    height: 24px;
+    /* DO NOT change icon colors in light mode */
+}
+
+.skill-header h3 {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Light mode skill header h3 - CHANGE TEXT */
+body.light-mode .skill-header h3 {
+    color: var(--light-text-primary);
+}
+
+.skill-tags {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tags2 {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tags4 {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ========================================
+   SKILL TAGS - SWAPPED COLORS IN LIGHT MODE
+   ======================================== */
+
+/* Skill Tag 1 (Frontend: HTML5, CSS3, JavaScript, etc.) */
+.skill-tag {
+    background-color: rgba(5, 148, 161, 0.15);
+    color: rgb(160, 216, 239);
+    padding: 3px 12px;
+    border-radius: 13px;
+    font-size: 12px;
+    font-weight: 550;
+    border: 1px solid transparent;
+    height: 23px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode skill-tag - SWAP COLORS */
+body.light-mode .skill-tag {
+    background-color: var(--light-skill-tag-bg);
+    color: var(--light-skill-tag-text);
+}
+
+/* Skill Tag 2 (Backend: PHP, Python, MySQL, etc.) */
+.skill-tag2 {
+    background-color: rgba(27, 82, 122, 0.36);
+    color: rgba(91, 208, 254, 0.881);
+    padding: 3px 12px;
+    border-radius: 13px;
+    font-size: 12px;
+    font-weight: 550;
+    border: 1px solid transparent;
+    height: 23px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode skill-tag2 - SWAP COLORS */
+body.light-mode .skill-tag2 {
+    background-color: var(--light-skill-tag2-bg);
+    color: var(--light-skill-tag2-text);
+}
+
+/* Skill Tag 3 (Database Management) */
+.skill-tag3 {
+    background-color: rgba(14, 119, 42, 0.36);
+    color: rgba(101, 255, 163, 0.881);
+    padding: 3px 12px;
+    border-radius: 13px;
+    font-size: 12px;
+    font-weight: 550;
+    border: 1px solid transparent;
+    height: 23px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode skill-tag3 - SWAP COLORS */
+body.light-mode .skill-tag3 {
+    background-color: var(--light-skill-tag3-bg);
+    color: var(--light-skill-tag3-text);
+}
+
+/* Skill Tag 4 (PowerPoint and Word) */
+.skill-tag4 {
+    background-color: rgba(86, 11, 135, 0.251);
+    color: rgba(190, 145, 250, 0.881);
+    padding: 3px 12px;
+    border-radius: 13px;
+    font-size: 12px;
+    font-weight: 550;
+    border: 1px solid transparent;
+    height: 23px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode skill-tag4 - SWAP COLORS */
+body.light-mode .skill-tag4 {
+    background-color: var(--light-skill-tag4-bg);
+    color: var(--light-skill-tag4-text);
+}
+
+/* Skill Tag 5 (Tools & Collaboration) */
+.skill-tag5 {
+    background-color: rgba(135, 65, 11, 0.36);
+    color: rgba(255, 183, 101, 0.881);
+    padding: 3px 12px;
+    border-radius: 13px;
+    font-size: 12px;
+    font-weight: 550;
+    border: 1px solid transparent;
+    height: 23px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode skill-tag5 - SWAP COLORS */
+body.light-mode .skill-tag5 {
+    background-color: var(--light-skill-tag5-bg);
+    color: var(--light-skill-tag5-text);
+}
+
+/* ========================================
+   AWARDS SECTION
+   ======================================== */
+.awards-container{
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Light mode awards container - SAME AS BODY BACKGROUND */
+body.light-mode .awards-container {
+    background-color: var(--light-body-bg);
+}
+
+.text h1{
+    font-size:30px;
+    color: rgba(156, 170, 181, 0.76);
+    font-weight: 550;
+    transition: color 0.3s ease;
+}
+
+/* Light mode awards text - CHANGE TEXT COLOR ONLY */
+body.light-mode .text h1 {
+    color: var(--light-text-secondary);
+}
+
+.clock img{
+    height: 120px;
+    width: 120px;
+    /* DO NOT change icon colors in light mode */
+}
+
+/* ========================================
+   GET IN TOUCH (CONTACT) SECTION
+   KEEP DARK IN LIGHT MODE
+   ======================================== */
+.contact-wrapper{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.light-mode .contact-container{
+    background-color: #fbf8f8;
+}
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(19, 30, 55, 0.95);
+    width: 100%;
+    max-width: 1102px;
+    padding: 25px;
+    padding-top: 40px;
+    border-radius: 16px;
+    /* DO NOT change background in light mode - stays dark */
+}
+
+.intro-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+.light-mode .icon-text p{
+    color: var(--light-text-primary);
+}
+.inf-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.light-mode .text1{
+    color:  #4a5568;;
+
+}
+.text1{
+    color: rgba(255, 255, 255, 0.596);
+    font-weight: 300;
+    font-size: 14px;
+    /* Keep white in light mode */
+}
+
+.light-mode .text2{
+    color: rgba(10, 132, 99, 0.878);
+}
+.text2{
+    color: rgba(156, 255, 228, 0.671);
+    font-weight: 400;
+    /* Keep as-is in light mode */
+}
+
+.light-mode .text3{
+    color: #0fa833f7;
+}
+.text3{
+    color: #1fec4fdf;
+    font-weight: 400;
+    /* Keep as-is in light mode */
+}
+.light-mode .text4{
+    color: #227db5e1;
+}
+.text4{
+    color: #93d6ffab;
+    font-weight: 400;
+    /* Keep as-is in light mode */
+}
+
+.light-mode .text5{
+    color: #4e51d7e3;
+}
+.text5{
+    color: #9d9effcb;
+    font-weight: 400;
+    /* Keep as-is in light mode */
+}
+
+.icon-text{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.icon-text p{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.911);
+    padding-bottom: 1.7px;
+    /* Keep white in light mode */
+}
+
+
+.light-mode .icon-wrapper img{
+    filter: brightness(0.4) contrast(1);
+}
+.icon-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info-cards-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.info-cards{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(15, 47, 85, 0.326);
+    padding: 17px;
+    border-radius: 10px;
+    border: 1px solid rgba(129, 135, 151, 0.146);
+    line-height: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode info-cards - LIGHTER VERSION WITH LOW OPACITY */
+body.light-mode .info-cards {
+    background-color: var(--light-info-card-bg);
+}
+
+.info-cards:hover{
+    background-color: rgba(17, 104, 131, 0.233);
+    transition: ease-in 0.2s;
+}
+
+body.light-mode .info-cards:hover {
+    background-color: rgba(200, 220, 235, 0.5);
+}
+
+.info-cards2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(5, 59, 22, 0.326);
+    padding: 17px;
+    border-radius: 10px;
+    border: 1px solid rgba(129, 135, 151, 0.146);
+    line-height: 21px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode info-cards2 - LIGHTER VERSION WITH LOW OPACITY */
+body.light-mode .info-cards2 {
+    background-color: var(--light-info-card2-bg);
+}
+
+.info-cards2:hover{
+    background-color: rgba(10, 167, 52, 0.233);
+    transition: ease-in 0.2s;
+}
+
+body.light-mode .info-cards2:hover {
+    background-color: rgba(200, 235, 215, 0.5);
+}
+
+.info-cards3{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(18, 56, 103, 0.326);
+    padding: 17px;
+    border-radius: 10px;
+    border: 1px solid rgba(129, 135, 151, 0.146);
+    line-height: 21px;
+    transition: all 0.3s ease;
+}
+
+/* Light mode info-cards3 - LIGHTER VERSION WITH LOW OPACITY */
+body.light-mode .info-cards3 {
+    background-color: var(--light-info-card3-bg);
+}
+
+.info-cards3:hover{
+    background-color: rgba(10, 115, 167, 0.233);
+    transition: ease-in 0.2s;
+}
+
+body.light-mode .info-cards3:hover {
+    background-color: rgba(200, 225, 240, 0.5);
+}
+
+.info-cards4{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(56, 11, 93, 0.326);
+    padding: 17px;
+    border-radius: 10px;
+    border: 1px solid rgba(129, 135, 151, 0.146);
+    line-height: 21px;
+    transition: all 0.3s ease;
+}
+
+
+/* Light mode info-cards4 - LIGHTER VERSION WITH LOW OPACITY */
+body.light-mode .info-cards4 {
+    background-color: var(--light-info-card4-bg);
+}
+
+.icon-wrapper{
+    padding-top: 7px;
+    padding-right: 9px;
+}
+
+.icon-wrapper img{
+    height: 20px;
+    width: 20px;
+    /* Keep white/light in light mode */
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer{
+    margin-top: 100px;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(9, 15, 30, 0.95);
+    border-top: 1px solid rgba(45, 52, 68, 0.95);
+    transition: all 0.3s ease;
+}
+
+/* Light mode footer */
+body.light-mode footer {
+    background-color: var(--light-footer-bg);
+    border-top: 1px solid var(--light-footer-border);
+}
+
+footer p{
+    color: rgb(154, 151, 151);
+    transition: color 0.3s ease;
+}
+
+/* Light mode footer text */
+body.light-mode footer p {
+    color: var(--light-footer-text);
+}
+
+/* ========================================
+   SECTION VISIBILITY CONTROL
+   ======================================== */
+.section-hidden {
+    display: none;
+}
+
+.section-visible {
+    display: flex;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Small Laptops & Tablets Landscape (1024px and below) */
+@media (max-width: 1024px) {
+    .header-name h2 {
+        margin-left: 40px;
+        font-size: 22px;
+    }
+    
+    .nav-wrapper {
+        margin-left: 200px;
+    }
+    
+    .dark-mode-toggle-wrapper {
+        margin-right: 40px;
+    }
+    
+    .about-me-section-wrapper {
+        margin-top: 90px;
+    }
+    
+    .about-me-text h1 {
+        font-size: 36px;
+    }
+    
+    .about-me-text h2 {
+        font-size: 20px;
+    }
+    
+    .self p {
+        width: 90%;
+        max-width: 600px;
+    }
+    
+    .bottom-nav {
+        max-width: 90%;
+    }
+}
+
+/* Tablets Portrait (768px and below) */
+@media (max-width: 768px) {
+    .nav-wrapper {
+        display: none;
+    }
+    
+    .header-section {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    
+    .header-name h2 {
+        margin-left: 0;
+        font-size: 20px;
+    }
+    
+    .dark-mode-toggle-wrapper {
+        margin-right: 0;
+    }
+    
+    .about-me-section-wrapper {
+        margin-top: 80px;
+        padding: 0 20px;
+        width: 100%;
+    }
+    
+    .profile {
+        height: 140px;
+        width: 140px;
+    }
+    
+    .about-me-text {
+        width: 100%;
+    }
+    
+    .about-me-text h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+    
+    .about-me-text h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .self {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .self p {
+        width: 100%;
+        max-width: 500px;
+        font-size: 14px;
+    }
+    
+    .nav-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-buttons button {
+        height: 35px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .btn-1 img, .btn-2 img, .btn-3 img {
+        height: 16px;
+        width: 16px;
+    }
+    
+    .bottom-nav-section {
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .bottom-nav {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .bottom-nav button {
+        font-size: 13px;
+        padding-top: 6px;
+    }
+    
+    .about-me {
+        max-width: 95%;
+        margin: 40px auto;
+        padding: 20px;
+    }
+    
+    .about-wrapper, .education-wrapper, .research-wrapper {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    .wrapper h2 {
+        font-size: 20px;
+    }
+    
+    .div-p-wrapper p {
+        font-size: 14px;
+    }
+    
+    .div-p-wrapper2 .p1 {
+        font-size: 15px;
+    }
+    
+    .div-p-wrapper2 .p2 {
+        font-size: 14px;
+    }
+    
+    .experience-section {
+        max-width: 95%;
+        padding: 20px;
+        margin: 40px auto;
+    }
+    
+    .work-exp-wrapper {
+        font-size: 20px;
+    }
+    
+    .separate {
+        gap: 400px;
+    }
+    
+    .separate2 {
+        gap: 440px;
+    }
+    
+    .separate3 {
+        gap: 500px;
+    }
+    
+    .par1 {
+        font-size: 16px;
+    }
+    
+    .par3 {
+        font-size: 15px;
+    }
+    
+    .skills-section {
+        max-width: 95%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .skill-card {
+        height: auto;
+        min-height: 130px;
+    }
+    
+    .skill-card:nth-child(5) {
+        grid-column: 1;
+        height: auto;
+    }
+    
+    .contact-wrapper {
+        padding: 0 20px;
+        width: 100%;
+    }
+    
+    .contact-container {
+        max-width: 95%;
+        margin: 0 auto;
+        padding: 25px 20px;
+    }
+    
+    .info-cards-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+    .header-section {
+        padding: 0 15px;
+    }
+    
+    .header-name h2 {
+        margin-left: 0;
+        font-size: 18px;
+    }
+    
+    .dark-mode-toggle-wrapper {
+        margin-right: 0;
+    }
+    
+    .dark-mode-toggle-wrapper .dark-mode-toggle {
+        height: 32px;
+        width: 32px;
+    }
+    
+    .about-me-section-wrapper {
+        margin-top: 70px;
+        padding: 0 20px;
+        width: 100%;
+    }
+    
+    .profile {
+        margin-top: 30px;
+        height: 120px;
+        width: 120px;
+    }
+    
+    .about-me-text {
+        width: 100%;
+    }
+    
+    .about-me-text h1 {
+        font-size: 28px;
+    }
+    
+    .about-me-text h2 {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+    
+    .self {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .self p {
+        width: 100%;
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.6;
+        text-align: center;
+    }
+    
+    .nav-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 8px;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    
+    .nav-buttons button {
+        height: 33px;
+        padding: 6px 10px;
+        font-size: 12px;
+        flex: 1;
+        min-width: 100px;
+        max-width: 120px;
+    }
+    
+    .bottom-nav-section {
+        margin-top: 50px;
+        padding: 0 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .bottom-nav {
+        height: 32px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .bottom-nav button {
+        font-size: 12px;
+        padding-top: 5px;
+    }
+    
+    .bottom-nav button:focus {
+        height: 32px;
+    }
+    
+    .about-me {
+        max-width: calc(100% - 20px);
+        margin: 30px auto;
+        padding: 20px 15px;
+    }
+    
+    .about-wrapper, .education-wrapper, .research-wrapper {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .wrapper h2 {
+        font-size: 18px;
+    }
+    
+    .div-p-wrapper {
+        margin-left: 0;
+    }
+    
+    .div-p-wrapper p {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    
+    .div-p-wrapper2 {
+        margin-left: 0;
+    }
+    
+    .div-p-wrapper2 .p1 {
+        font-size: 14px;
+    }
+    
+    .div-p-wrapper2 .p2 {
+        font-size: 13px;
+    }
+    
+    .div-p-wrapper2 .p3 {
+        font-size: 13px;
+    }
+    
+    .div-p-wrapper3 {
+        margin-left: 0;
+    }
+    
+    .experience-section {
+        max-width: calc(100% - 20px);
+        margin: 30px auto;
+        padding: 20px 15px;
+    }
+    
+    .work-exp-wrapper {
+        font-size: 18px;
+        padding: 0 5px;
+    }
+    
+    .Aspiring, .Freelance, .commi {
+        padding-left: 15px;
+    }
+    
+    .separate {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+    
+    .separate2 {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+    
+    .separate3 {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+    
+    .par1 {
+        font-size: 15px;
+    }
+    
+    .par2, .par0 {
+        width: auto;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    
+    .par3 {
+        font-size: 14px;
+    }
+    
+    .freelance-2nd-text p {
+        font-size: 13px;
+    }
+    
+    .skills-section {
+        max-width: calc(100% - 20px);
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+    
+    .skill-card {
+        padding: 18px 15px;
+    }
+    
+    .skill-header h3 {
+        font-size: 16px;
+    }
+    
+    .skill-tag, .skill-tag2, .skill-tag3, .skill-tag4, .skill-tag5 {
+        font-size: 11px;
+        padding: 2px 10px;
+    }
+    
+    .awards-container {
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+    
+    .text h1 {
+        font-size: 24px;
+    }
+    
+    .clock img {
+        height: 100px;
+        width: 100px;
+    }
+    
+    .contact-wrapper {
+        margin-top: 30px;
+        padding: 0 10px;
+        width: 100%;
+    }
+    
+    .contact-container {
+        max-width: calc(100% - 20px);
+        padding: 25px 15px;
+        margin: 0 auto;
+    }
+    
+    .intro-wrapper {
+        padding: 0 5px;
+    }
+    
+    .intro-wrapper p {
+        font-size: 13px;
+    }
+    
+    .info-cards, .info-cards2, .info-cards3, .info-cards4 {
+        padding: 15px;
+    }
+    
+    .text1 {
+        font-size: 13px;
+    }
+    
+    .text2, .text3, .text4, .text5 {
+        font-size: 14px;
+    }
+    
+    footer {
+        margin-top: 60px;
+        height: 80px;
+        padding: 0 15px;
+    }
+    
+    footer p {
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+/* Very Small Mobile Phones (414px and below - Stack buttons vertically) */
+@media (max-width: 414px) {
+    .about-me-text h1 {
+        font-size: 26px;
+    }
+    
+    .about-me-text h2 {
+        font-size: 15px;
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .nav-buttons button {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
+
+/* Very Small Screens (375px and below) */
+@media (max-width: 375px) {
+    .header-name h2 {
+        font-size: 16px;
+    }
+    
+    .profile {
+        height: 100px;
+        width: 100px;
+    }
+    
+    .about-me-text h1 {
+        font-size: 24px;
+    }
+    
+    .about-me-text h2 {
+        font-size: 14px;
+    }
+    
+    .self p {
+        font-size: 12px;
+    }
+    
+    .bottom-nav button {
+        font-size: 11px;
+    }
+    
+    .work-exp-wrapper {
+        font-size: 16px;
+    }
+    
+    .skill-header h3 {
+        font-size: 15px;
+    }
+    
+    .about-me, .experience-section, .skills-section, .contact-container {
+        max-width: calc(100% - 15px);
+    }
+}

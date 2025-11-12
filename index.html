@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // This runs before the page renders to prevent flash
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-mode-loading');
+            }
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Basic SEO -->
+    <meta name="title" content="EJ Padernal | Portfolio">
+    <meta name="description" content="Explore the portfolio of EJ Padernal — an aspiring IT student and front-end developer passionate about creating responsive, user-friendly websites and systems.">
+    <meta name="keywords" content="EJ Padernal, Portfolio, Web Developer, IT Student, Front-End Developer, JavaScript, HTML, CSS, PHP, MySQL, Freelancer">
+    <meta name="author" content="EJ Padernal">
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ejpadernal-portfolio.vercel.app/">
+    <meta property="og:title" content="EJ Padernal | Aspiring Front-End Developer">
+    <meta property="og:description" content="Welcome to my portfolio — showcasing my projects, skills, and achievements in IT and web development.">
+    <meta property="og:image" content="img/preview.jpg">
+
+    <!-- Twitter Preview -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ejpadernal-portfolio.vercel.app/">
+    <meta name="twitter:title" content="EJ Padernal | Aspiring Front-End Developer">
+    <meta name="twitter:description" content="A portfolio by EJ Padernal — exploring modern web design and student projects in IT.">
+    <meta name="twitter:image" content="img/preview.jpg">
+
+    <title>E-J Padernal | Aspiring Software Developer</title>
+</head>
+<body>
+    <header class="header-section">
+        <div class="header-name"> 
+            <h2>E-J T. Padernal</h2>
+        </div>
+        
+        <div class="nav-wrapper">
+            <nav>
+                <ul class="nav-links">
+                    <li>About</li>
+                    <li>Experience</li>
+                    <li>Skills</li>
+                    <li>Awards</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="dark-mode-toggle-wrapper">
+            <!-- Dark mode toggle button - icon will be added via JavaScript -->
+            <button class="dark-mode-toggle"></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-me-section-wrapper">
+            <div class="profile-picture">
+                <img class="profile" src="img/ej.jpg" alt="">
+            </div>
+            
+            <div class="about-me-text">
+                <h1>E-J T. Padernal</h1>
+                <h2>Aspiring Software Developer |</h2>
+                <h2>Freelancer</h2>
+            </div>
+
+            <div class="self">
+                <p>BSIT student and aspiring Full Stack Developer with a passion for building useful student-focused projects. Currently pursuing freelance work to expand my experience and confidence in real-world development.</p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn-1">
+                    <img src="img/mail.png" alt="yoww">
+                    Get in Touch
+                </button>
+                <button class="btn-2">
+                    <img src="img/briefcase.png" alt="yoww">
+                    View Experience
+                </button>
+                <button class="btn-3" onclick="window.open('https://github.com/jayjix', '_blank')">
+                    <img src="img/github2.png" alt="yoww"> 
+                    Github
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <section class="bottom-nav-section">
+        <nav class="bottom-nav">
+            <button>About</button>
+            <button>Experience</button>
+            <button>Skill</button>
+            <button>Awards</button>
+            <button>Contact</button>
+        </nav>
+    </section>
+
+    <article class="about-me">
+        <div class="about-wrapper">
+            <div class="wrapper">
+                <img src="img/about.png" alt="">
+                <h2>About me</h2>
+            </div>
+            <div class="div-p-wrapper">
+                <p>I'm a second-year BSIT student and an aspiring Full Stack Developer passionate about creating user-friendly and efficient web applications. I've built several projects designed to help students and improve productivity through technology.</p>
+                <p>Currently, I'm focused on enhancing my development skills while exploring freelancing opportunities to gain real-world experience, improve my confidence, and build a strong foundation for my future career in web development and software engineering.</p>
+            </div>
+        </div>
+        <div class="education-wrapper">
+            <div class="wrapper-2">
+                <img src="img/hat.png" alt="">
+                <h3>Education</h3>
+            </div>
+            <div class="div-p-wrapper2">
+                <p class="p1">Bachelor of Science in Information Technology</p>
+                <p class="p2">Specializing in Full Stack Web Development</p>
+                <p class="p3">Sibugay Technical Institute Incorporated (2024 - 2025)</p>
+            </div>
+        </div>
+        <div class="research-wrapper">
+            <div class="wrapper-3">
+                <img src="img/research.png" alt="">
+                <h3>Research Publication</h3>
+            </div>
+            <div class="div-p-wrapper3">
+                <p>Created a <b>"Spotify Clone web application"</b> for a school project, applying Full Stack development concepts such as responsive design, dynamic content, and user interaction.</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="experience-section">
+        <div class="work-exp-wrapper">
+            <img src="img/suitcase.png" alt="">
+            <span>Work Experience</span>
+        </div>
+
+        <div class="Aspiring">
+            <div>
+                <div class="separate"><p class="par1">Aspiring Full-stack Developer</p> <p class="par2">2024 - Present</p></div>
+                <p class="par3">School Particapations</p>
+            </div>
+            <div class="freelance-2nd-text">
+                <p>Participated in various school activities focused on developing systems, websites, and innovative projects. Collaborated with classmates and instructors to design functional and user-friendly applications, gaining hands-on experience in software development and teamwork.</p>
+            </div>
+        </div>
+
+        <div class="Freelance">
+            <div>
+                <div class="separate2"><p class="par1">Freelance Web Developer</p> <p class="par2">2025 - Present</p></div>
+                <p class="par3">Self-Employed</p>
+            </div>
+            <div class="freelance-2nd-text">
+                <p>Implemented responsive and database-driven websites using HTML, CSS, JavaScript, PHP, and MySQL, providing technical support and mentorship to students on their capstone development.</p>
+            </div>
+        </div>
+
+        <div class="commi">
+            <div>
+                <div class="separate3"><p class="par1">Commissary Staff</p> <p class="par0">2025 - June</p></div>
+                <p class="par3">Master Fry (Summer 2025)</p>
+            </div>
+            <div class="freelance-2nd-text">
+                <p>Assisted in food preparation, inventory organization, and daily operations within the commissary. Developed teamwork, time management, and attention to detail in a fast-paced work environment.</p>
+            </div>
+        </div>
+    </article>
+
+    <section class="skills-section">
+        <div class="skills-container">
+            
+            <!-- Frontend Development Card -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <img src="img/front.png" alt="Frontend">
+                    <h3>Frontend Development</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                </div>
+            </div>
+
+            <!-- Backend Development Card -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <img src="img/data.png" alt="Backend">
+                    <h3>Backend Development</h3>
+                </div>
+                <div class="skill-tags2">
+                    <span class="skill-tag2">PHP</span>
+                    <span class="skill-tag2">Python</span>
+                    <span class="skill-tag2">MySQL</span>
+                    <span class="skill-tag2">Xampp</span>
+                    <span class="skill-tag2">Wamp</span>
+                    <span class="skill-tag2">Supabase</span>
+                </div>
+            </div>
+
+            <!-- Database Management Card -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <img src="img/data2.png" alt="Database">
+                    <h3>Database Management</h3>
+                </div>
+                <div class="skill-tags2">
+                    <span class="skill-tag3">Supabase</span>
+                    <span class="skill-tag3">MySQL</span>
+                    <span class="skill-tag3">Database Design</span>
+                    <span class="skill-tag3">Query Optimization</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <img src="img/word.png" alt="Tools">
+                    <h3>PowerPoint and Word Proficiency</h3>
+                </div>
+                <div class="skill-tags2">
+                    <span class="skill-tag4">Microsoft word</span>
+                    <span class="skill-tag4">Microsoft Power point</span>
+                    <span class="skill-tag4">Canva</span>
+                    <span class="skill-tag4">WPS Office</span>
+                </div>
+            </div>
+
+            <!-- Tools & Collaboration Card -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <img src="img/tools.png" alt="Tools">
+                    <h3>Tools & Collaboration</h3>
+                </div>
+                <div class="skill-tags4">
+                    <span class="skill-tag5">Git</span>
+                    <span class="skill-tag5">GitHub</span>
+                    <span class="skill-tag5">Visual Studio</span>
+                    <span class="skill-tag5">VS Code</span>
+                    <span class="skill-tag5">Figma</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="awards-container">
+        <div class="clock">
+            <img src="img/display.png" alt="">
+        </div>
+        <div class="text">
+            <h1>Displaying Soon...</h1>
+        </div>
+    </section>
+
+    <section class="contact-wrapper">
+        <content class="contact-container">
+            <div class="intro-wrapper">
+                <div class="icon-text">
+                    <img src="img/email.png" alt="mail">
+                    <p class="1">Get in Touch</p>
+                </div>
+                <div class="text-wrap">
+                    <p class="text1">Feel free to reach out for collaborations or opportunities</p>
+                </div>
+            </div>
+            <div class="info-cards-wrapper">
+                <div class="info-cards" onclick="window.open('https://accounts.google.com/SignOutOptions?hl=en-GB&continue=https://mail.google.com/mail/&service=mail&ec=GBRAFw', '_blank')">
+                    <div class="inf-text">
+                        <p class="text1">Email</p>
+                        <p class="text2" onclick="window.open('https://accounts.google.com/SignOutOptions?hl=en-GB&continue=https://mail.google.com/mail/&service=mail&ec=GBRAFw', '_blank')">tubilllyno@gmail.com</p>
+                    </div>
+                </div>
+                <div class="info-cards2">
+                    <div class="icon-wrapper">
+                        <img src="img/phone.png" alt="fb icon">
+                    </div>
+                    <div class="text-wrapper">
+                        <p class="text1">Phone</p>
+                        <p class="text3">0910 779 6438</p>
+                    </div>
+                </div>
+                <div class="info-cards3" onclick="window.open('https://www.facebook.com/ejpadernal.jay', '_blank')">
+                    <div class="icon-wrapper">
+                        <img src="img/f.png" alt="phone icon">
+                    </div>
+                    <div class="text-wrapper">
+                        <p class="text1">Facebook</p>
+                        <p class="text4">Agosti Luigi</p>
+                    </div>
+                </div>
+                <div class="info-cards4">
+                    <div class="icon-wrapper">
+                        <img src="img/loca.png" alt="location icon">
+                    </div>
+                    <div class="text-wrapper">
+                        <p class="text1">location</p>
+                        <p class="text5">Ipil Heights, Ipil, Zamboanga Sibugay</p>
+                    </div>
+                </div>
+            </div>
+        </content>
+    </section>
+
+    <footer>
+        <p class="copyright-text">© 2025 E-J T. Padernal. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
